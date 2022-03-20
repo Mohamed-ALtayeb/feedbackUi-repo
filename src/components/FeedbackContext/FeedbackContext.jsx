@@ -15,7 +15,7 @@ export const FeedbackProvider = ({ children }) => {
 
   useLayoutEffect(() => {
     fetchFeedback();
-  }, [feedback]);
+  }, []);
 
   const fetchFeedback = () => {
     axios
