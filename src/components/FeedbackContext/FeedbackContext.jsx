@@ -1,7 +1,6 @@
 import axios from "axios";
-// import { v4 as uuidv4 } from "uuid";
+
 import { createContext, useState, useLayoutEffect } from "react";
-// import { v4 as uuidv4 } from "uuid";
 
 const FeedbackContext = createContext();
 
@@ -19,7 +18,7 @@ export const FeedbackProvider = ({ children }) => {
 
   const fetchFeedback = () => {
     axios
-      .get("http://localhost:500/feedback")
+      .get("http://localhost:5000/feedback")
       .then((resp) => {
         setFeedback(resp.data);
       })
@@ -58,7 +57,7 @@ export const FeedbackProvider = ({ children }) => {
   const feedBackAdd = (newFeedback) => {
     axios({
       method: "post",
-      url: `http://localhost:500/feedback?_sort=id&_order=decs`,
+      url: `http://localhost:5000/feedback?_sort=id&_order=decs`,
       headers: {
         "Content-Type": "application/json",
       },
@@ -79,7 +78,7 @@ export const FeedbackProvider = ({ children }) => {
     if (window.confirm("Do you want to Delete ?")) {
       axios({
         method: "delete",
-        url: `http://localhost:500/feedback/${id}`,
+        url: `http://localhost:5000/feedback/${id}`,
       })
         .then((response) => {
           let filteredItem = feedback.filter((item) => item.id !== id);
@@ -105,7 +104,7 @@ export const FeedbackProvider = ({ children }) => {
   const updateFeedback = async (id, updItem) => {
     axios({
       method: "put",
-      url: `http://localhost:500/feedback/${id}`,
+      url: `http://localhost:5000/feedback/${id}`,
       headers: {
         "Content-Type": "application/json",
       },

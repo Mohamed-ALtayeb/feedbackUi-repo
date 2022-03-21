@@ -9,8 +9,21 @@ const FeedbackList = (props) => {
   const { feedback, isLoading } = useContext(FeedbackContext);
 
   if (!isLoading && (!feedback || feedback.length === 0)) {
-    return <Spinner />;
+    //*******************Spinner is knid of annoying so i commented it out*********************//
+    // return <Spinner/>
+    return (
+      <h3 className="text-center text-emerald-700">
+        Please Give Us a Feedback
+      </h3>
+    );
   }
+  // else if (feedback === []) {
+  //   return (
+  //     <h3 className="text-center text-emerald-700">
+  //       Please Give Us a Feedback
+  //     </h3>
+  //   );
+  // }
 
   return isLoading ? (
     <h3>Loading ... </h3>
